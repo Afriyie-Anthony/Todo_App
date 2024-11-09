@@ -1,0 +1,158 @@
+:root{
+  --background: #212529;
+  --primary-color: #1c1d20;
+  --secondary-color: #4a4d57;
+  --accent-color: #22b8cf;
+  --text-color: #f9f9f9;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+html{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16pt;
+  color: var(--text-color);
+}
+body{
+  min-height: 90vh;
+  padding: 10px;
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1{
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--accent-color);
+  background: #00000013;
+  padding: 20px 50px;
+  border-radius: 50px;
+}
+.container{
+  background-color: #0a0a0a6b;
+  padding: 40px 40px 0 40px;
+  border-radius: 10px;
+  width: 550px;
+  height: 450px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+form #task{
+  box-sizing: border-box;
+  padding: 12px 20px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.043);
+  border: 2px solid var(--secondary-color);
+  border-radius: 30px;
+  font: inherit;
+  color: var(--text-color);
+  caret-color: var(--accent-color);
+
+  &:focus{
+    outline: none;
+  }
+}
+
+form{
+  position: relative;
+}
+
+.container2{
+  overflow: scroll;
+}
+.container2::-webkit-scrollbar{
+  background-color: transparent;
+}
+.container2::-webkit-scrollbar-corner{
+border-radius: 20px;
+}
+
+#btn-add{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--accent-color);
+  height: 100%;
+  padding: 0 30px;
+  border: none;
+  border-radius: 30px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--background);
+  cursor: pointer;
+}
+.todo{
+  margin-bottom: 10px;
+  padding: 0 15px;
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+
+  .todo-text{
+    padding: 15px;
+    padding-right: 0;
+    flex-grow: 1;
+  }
+}
+.delete{
+  padding: 5px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.custom-checkbox{
+  border: 2px solid var(--accent-color);
+  border-radius: 30px;
+  min-height: 25px;
+  min-width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+input[type="checkbox"]:checked ~ .custom-checkbox{
+  background-color: var(--accent-color);
+}
+input[type="checkbox"]:checked ~ .custom-checkbox svg{
+  fill: var(--primary-color);
+}
+input[type="checkbox"]:checked ~ .todo-text{
+  text-decoration: line-through;
+  color: var(--secondary-color);
+
+}
+
+input[type="checkbox"]{
+  display: none;
+}
+
+@media(max-width: 500px){
+ html{
+  font-size: 12pt;
+ }
+
+ #btn-add{
+  position: unset;
+  width: 100%;
+  margin-top: 10px;
+  height: auto;
+  padding: 20px;
+ }
+
+ h1{
+  margin-top: 50px;
+  font-size: 15vw;
+ }
+}
